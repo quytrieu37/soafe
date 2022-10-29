@@ -1,0 +1,10 @@
+<form action="" method="post" *ngIf="!(accountServices.currentUser$ | async)">
+  <input type="text" placeholder="username" name="Username" [(ngModel)]="authUser.username">
+  <input type="password" placeholder="password" name="Password" [(ngModel)]="authUser.username">
+  <input type="text" [value]="authUser.username">
+  <button type="button" (click)="login()">Login</button>
+</form>
+<div *ngIf="(accountServices.currentUser$ | async)">
+  <h2>Hello {{authUser.username}}</h2>
+  <button type="button" (click)="logout()">Logout</button>
+</div>
